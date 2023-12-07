@@ -23,9 +23,10 @@ const Edit = () => {
 
  
 
-  const Edit = async () => {
+  const Edit = async (e) => {
+    e.preventDefault()
     try {
-      const res = await axios.patch("http://localhost:3082/api/edittask", { ...val });
+      const res = await axios.patch(`http://localhost:3082/api/edittask/${id}`, { ...val });
       console.log(res.data);
       if (res.status !== 404) {
         alert("data edited");
@@ -48,14 +49,16 @@ const Edit = () => {
 
   return (
     <div>
-      <div className="main-card">
+<form action="" onSubmit={Edit}>
+<div className="main-card">
         <h2>Edit Phone Book</h2>
         <div><input type="text" placeholder='Name' name='name' value={val.name} onChange={GetData}/></div>
         <div><input type="text" placeholder='Number' name='number' value={val.number} onChange={GetData}/></div>
-        <div><button  onClick={Edit}>Edit</button></div>
+        <div><button>Edit</button></div>
 
        
       </div>
+</form>
     </div>
   )
 }

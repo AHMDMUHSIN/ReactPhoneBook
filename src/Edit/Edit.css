@@ -1,0 +1,41 @@
+.main-card {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .main-card h2 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .main-card input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .main-card button {
+    width: calc(100% - 20px);
+    padding: 12px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .main-card button:hover {
+    background-color: #27ae60;
+  }

@@ -11,13 +11,13 @@ export async function getTask(req,res){
     res.status(200).send(task)
 }
 
-// export function delTask(req,res)
-// {
-//     const{id}=req.params;
-//     const data=schema.deleteOne({_id:id})
-//     data.then((resp)=>{
-//         res.status(200).send(resp)
-//     }).catch((error)=>{
-//         res.status(404).send(error)
-//     })
-// }
+export function delTask(req,res)
+{
+    const{id}=req.params;
+    const data=schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}

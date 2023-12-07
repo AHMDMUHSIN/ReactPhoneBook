@@ -1,13 +1,58 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 const Edit = () => {
+  const {id}=useParams()
+  // const [getPersondetails,setPersondetails]=useState({})
+  // const [person, setPerson] = useState({});
+  const [val, setVal] = useState({
+    name: '',
+    number: ''
+  });
+
+  const GetPerson = async () => {
+    try {
+      const res = await axios.post(`http://localhost:3082/api/fulltails/${id}`);
+      setVal(res.data);
+      console.log(val);
+    } catch (error) {
+      console.error("Error getting data:", error);
+    }
+  };
+
+ 
+
+  const Edit = async () => {
+    try {
+      const res = await axios.patch("http://localhost:3082/api/edittask", { ...val });
+      console.log(res.data);
+      if (res.status !== 404) {
+        alert("data edited");
+      }
+    } catch (error) {
+      console.error("Error registering:", error);
+    }
+  };
+
+  const GetData = (e) => {
+    setVal((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    console.log(val);
+  };
+
+  
+
+  useEffect(() => {
+    GetPerson();
+  }, []);
+
   return (
     <div>
       <div className="main-card">
-        <h2>Phone Book</h2>
-        <div><input type="text" placeholder='Name' name='name'/></div>
-        <div><input type="text" placeholder='Number' name='number'/></div>
-        <div><button>Register</button></div>
+        <h2>Edit Phone Book</h2>
+        <div><input type="text" placeholder='Name' name='name' value={val.name} onChange={GetData}/></div>
+        <div><input type="text" placeholder='Number' name='number' value={val.number} onChange={GetData}/></div>
+        <div><button  onClick={Edit}>Edit</button></div>
 
        
       </div>

@@ -45,7 +45,7 @@ const First = () => {
       const confirmed = window.confirm("Are you sure you want to delete this staff member?");
 
       if (confirmed) {
-        const res = await axios.delete(`http://localhost:3041/api/delTask/${id}`);
+        const res = await axios.delete(`http://localhost:3082/api/delTask/${id}`);
         console.log("deleted", res.data);
         GetPerson(); // Corrected from getAllstaff
       }
@@ -71,7 +71,7 @@ const First = () => {
               <p className="text-body">{dt.number}</p>
               <div className="btns">
                 <button onClick={() => delTask(dt._id)}>DELETE</button>
-                <Link to='/edit'><button>EDIT</button></Link>
+                <Link to={`/edit/${dt._id}`}><button>EDIT</button></Link>
               </div>
             </div>
             <button className="card-button">More info</button>

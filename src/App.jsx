@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' Component={First}/>
-        <Route path='/edit' Component={Edit}/>
+        <Route path='/edit/:id' Component={Edit}/>
       </Routes>
       </BrowserRouter>
     </>

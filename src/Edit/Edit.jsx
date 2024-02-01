@@ -54,10 +54,14 @@ const Edit = () => {
     <div>
 <form action="" onSubmit={Edit}>
 <div className="main-card">
-        <h2>Edit Phone Book</h2>
-        <div><input type="text" placeholder='Name' name='name' value={val.name} onChange={GetData}/></div>
-        <div><input type="text" placeholder='Number' name='number' value={val.number} onChange={GetData}/></div>
-        <div><button>Edit</button></div>
+        
+        
+
+        <div className='main'>
+        <div><input type="text" placeholder='Add Content...' name='name' value={val.name} onChange={GetData} /></div>
+        <div><input type="date"  name='number' onChange={GetData} value={val.number} /></div>
+        <div><button className='btn' >Edit</button></div>
+        </div>
 
        
       </div>

@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { MdOutlineEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
+import './First.css'
 
 const First = () => {
   const { id } = useParams();
@@ -57,24 +61,31 @@ const First = () => {
   return (
     <div>
       <div className="main-card">
-        <h2>Phone Book</h2>
-        <div><input type="text" placeholder='Name' name='name' onChange={GetData} /></div>
-        <div><input type="text" placeholder='Number' name='number' onChange={GetData} /></div>
-        <div><button onClick={register}>Register</button></div>
+        <h2 className='head'>My todo-s</h2>
+        <div className='main'>
+        <div><input type="text" placeholder='Add Content...' name='name' onChange={GetData} /></div>
+        <div><input type="date"  name='number' onChange={GetData} /></div>
+        <div><button className='btn' onClick={register}>ADD</button></div>
+        </div>
+        
       </div>
+
+      <div className='border'></div>
       <div className="full-data">
         {
         person.map((dt, index) => (
-          <div className="card" key={index}>
-            <div className="card-details">
-              <p className="text-title">{dt.name}</p>
-              <p className="text-body">{dt.number}</p>
-              <div className="btns">
-                <button onClick={() => delTask(dt._id)}>DELETE</button>
-                <Link to={`/edit/${dt._id}`}><button>EDIT</button></Link>
+          <div key={index}>
+
+            <div className='main2'>
+              <div className='name'>{dt.name}</div>
+              <div className='icons'>
+               
+                <div><span className='info'></span> {dt.number}</div>
+                <Link className='editicon' to={`/edit/${dt._id}`}> <div ><MdOutlineEdit /></div></Link>
+                <div className='deleteicon' onClick={() => delTask(dt._id)}><MdDelete /> </div>
               </div>
             </div>
-            <button className="card-button">More info</button>
+            
           </div>
         ))
         }

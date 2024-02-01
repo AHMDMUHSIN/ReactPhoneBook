@@ -3,6 +3,10 @@ import './App.css'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import First from './first/First';
 import Edit from './Edit/Edit';
+// import Index from './index/Index';
+
+
+
 
 function App() {
 
@@ -13,6 +17,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' Component={First}/>
+       
+        
         <Route path='/edit/:id' Component={Edit}/>
       </Routes>
       </BrowserRouter>
